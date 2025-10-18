@@ -1,0 +1,49 @@
+.include stdl.zsm 
+
+.define GenRandomNumFlagAddress 0x00000002
+.define GenRandomNumMinAddress 0x00000003
+.define GenRandomNumMaxAddress 0x00000004
+.define GenRandomNumResultAddress 0x00000005
+
+
+GenerateRandomNumber:
+    # r0 Min Value 
+    # r1 Max Value
+    # r31 Return 
+
+    # Special Addresses are always in Bank 0
+
+    # Load Arguments 
+    sta 0, r0, GenRandomNumMinAddress
+    sta 0, r1, GenRandomNumMaxAddress
+
+    # Set Flag to 1 
+    ldr r4, 1
+    sta 0, r4, GenRandomNumFlagAddress
+
+    # Store Result in r31 
+    lda 0, r31, GenRandomNumResultAddress
+
+    # Clean up
+
+    ldr r0, 0
+    ldr r1, 0
+
+    sta 0, r0, GenRandomNumMinAddress
+    sta 0, r1, GenRandomNumMaxAddress
+
+    ret
+
+PRG_MAIN:
+
+    # Arguments
+    ldr r0, 1
+    ldr r1, 10
+
+    # Function Call
+    call GenerateRandomNumber
+
+    # Result now in Register 31 
+
+    call KillProgram
+    ret
