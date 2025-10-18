@@ -36,7 +36,9 @@ GenerateRandomNumber:
 
 PRG_MAIN:
 
+    # Generate Random Number Between 1 - 10
     # Arguments
+
     ldr r0, 1
     ldr r1, 10
 
