@@ -1,5 +1,7 @@
 **ZSM Assembler**
 
+[![CodeFactor](https://www.codefactor.io/repository/github/flagzerointeractive/zeroassembler/badge/main)](https://www.codefactor.io/repository/github/flagzerointeractive/zeroassembler/overview/main)
+
 **About:** 
 The ZSM Assmbler assembles binaries for the [ZVM Project](https://github.com/flagzerointeractive/ZeroVirtualMachine).  Information about ZCode and the Virtual Hardware Can be found in [this repository](https://github.com/flagzerointeractive/ZVM-SPEC). 
 
